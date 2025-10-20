@@ -1,79 +1,37 @@
-## 🧭 Approach (Data Analysis Life Cycle)
+## Analysis Notebook – analysis/analysis.ipynb
 
-# 💹 Branch Performance Analysis (Q2)
-**Analyzing Relationship Manager (RM) performance on Corporate Card Issuance using Excel and Power BI.**  
-Helps management identify high-performing branches and track achievement against quarterly targets.
+# Card Issuance Analysis per RM
 
----
+import pandas as pd
 
-## 1️⃣ Business Understanding
+# Load data
+data = pd.read_csv('../data/Card_Issuance_Master.csv')
 
-The **Branch Performance Analysis** project focuses on monitoring the **Q2 card issuance** by **Relationship Managers (RMs)** across **Dubai (DXB)**, **Sharjah (SHJ)**, and **Abu Dhabi (AUH)** branches.
+# Calculate quarterly totals per RM
+quarterly = data.groupby('RM_Name').agg(
+    Total_Cards=('Cards_Issued', 'sum')
+).reset_index()
 
-**Objectives:**
-- Compare **actual cards issued vs. quarterly budget** for each RM and branch.  
-- Identify **high achievers and underperforming regions**.  
-- Provide **data-driven insights** to support management decision-making and incentive planning.
+# Calculate % achievement
+quarterly['% Achievement'] = (quarterly['Total_Cards'] / 750) * 100
 
-**Key Questions:**
-- Which branches met or exceeded their Q2 targets?  
-- Which RMs contributed the most to overall achievement?  
-- What is the overall % achievement across all branches?
+# Variance vs target
+quarterly['Variance'] = quarterly['Total_Cards'] - 750
 
-*(📊 Add visual: Business Workflow Overview)*
+# Display summary
+print("Quarterly RM Performance:")
+print(quarterly)
 
----
+# Monthly pivot table
+monthly_pivot = data.pivot_table(
+    index='RM_Name',
+    columns='Month',
+    values='Cards_Issued',
+    aggfunc='sum'
+).reset_index()
 
-## 2️⃣ Data Understanding
+print("\nMonthly Breakdown per RM:")
+print(monthly_pivot)
 
-The dataset was compiled from internal **RM performance sheets**, **operations reports**, and **branch submissions**.  
-Each record contains Q2 card issuance data for RMs categorized by region.
-
-**Data Attributes:**
-| Field | Description |
-|--------|--------------|
-| RM | Relationship Manager’s name |
-| Budget | Target card issuance for the quarter |
-| Actual April / May / June | Monthly cards issued |
-| Q2 Avg | Average cards issued during Q2 |
-| Avg % Achieved | Achievement % (Actual ÷ Budget) × 100 |
-| Region | Branch (DXB, SHJ, AUH) |
-
-**Sample Data:**
-| RM | Budget | Actual April | Actual May | Actual June | Q2 Avg | Avg % Achieved | Region |
-|----|---------|---------------|-------------|--------------|--------|----------------|--------|
-| Tony | 750 | 900 | 520 | 500 | 640 | 85% | DXB |
-| Jeff | 750 | 550 | 770 | 710 | 677 | 90% | SHJ |
-| Sara | 750 | 780 | 850 | 620 | 750 | 100% | DXB |
-| Donny | 750 | 790 | 850 | 550 | 730 | 97% | AUH |
-| Steve | 750 | 850 | 850 | 745 | 815 | 109% | SHJ |
-| Tom | 750 | 590 | 700 | 720 | 670 | 89% | AUH |
-
-**Branch Summary:**
-| Branch | Q2 Total | Q2 Budget | Avg % Achieved |
-|--------|-----------|------------|----------------|
-| AUH | 4,200 | 4,500 | 187% |
-| DXB | 4,170 | 4,500 | 185% |
-| SHJ | 4,475 | 4,500 | 199% |
-| **Grand Total** | **12,845** | **13,500** | **571%** |
-
-*(📈 Add visual: Branch-Wise Summary Table)*
-
----
-
-## 3️⃣ Approach (Data Analysis Life Cycle)
-
-### Data Collection
-- Collected monthly issuance data for Q2 from branch coordinators.  
-- Each record represented the number of cards issued per corporate by RM.
-
-### Data Preparation
-- Cleaned and standardized Excel sheets for each branch.  
-- Verified acknowledgment sheets and kept KYC at top of each corporate file.  
-- Merged all branch data into a **consolidated master file**.  
-- Added formulas for **% Achievement** and **Variance (Actual – Budget)**.  
-
-**Formula Example:**
-```excel
-=IFERROR((C5/B5)*100, 0)
-
+# Optional: save summary to Excel
+quarterly.to_excel('../data/Quarterly_RM_Summary.xlsx', index=False)

@@ -1,33 +1,28 @@
 # 2️⃣ Data Understanding
 
-## Data Source
-Simulated dataset created in **Excel** to demonstrate card issuance performance by Relationship Managers for corporates onboarded in the last 3 months.
+### Data Source
+Simulated dataset created in **Excel**, representing card issuance by RMs for Q2 (April–June).
 
-## Data Features
-| Field Name | Description |
-|-------------|-------------|
-| RM Name | Relationship Manager |
-| Region | DXB, SHJ, AUH |
-| Corporate Name | Onboarded corporate client |
-| Cards Issued | Number of cards issued per corporate |
-| Budget | 750 cards per RM |
-| % Achieved | (Actual ÷ Budget) × 100 |
-
-## Data Volume
-- Covers 3-month data period  
-- 6–10 RMs across 3 regions (simulated dataset)
+### Data Fields
+| Field | Description |
+|--------|-------------|
+| RM | Relationship Manager name |
+| Budget | Target (750 cards) |
+| Actual April | Cards issued in April |
+| Actual May | Cards issued in May |
+| Actual June | Cards issued in June |
+| Q2 Avg | Average cards issued in Q2 |
+| Avg % Achieved | (Q2 Avg ÷ Budget) × 100 |
+| Region | Assigned region (DXB, SHJ, AUH) |
 
 ---
 
-## Example Data
-| RM | Budget | Actual | % Achieved |
-|----|---------|---------|------------|
-| Tony | 750 | 500 | 66.67% |
-| Jeff | 750 | 710 | 94.67% |
-| Sara | 750 | 620 | 82.67% |
-| Donny | 750 | 550 | 73.33% |
-| DXB & SHJ Total | 3000 | 2380 | 79.33% |
-| Steve | 750 | 745 | 99.33% |
-| Tom | 750 | 720 | 96.00% |
-| AUH Total | 1500 | 1465 | 97.67% |
-| Grand Total | 4500 | 3845 | 85.44% |
+### Sample Data
+| RM | Budget | Apr | May | June | Q2 Avg | % Achieved | Region |
+|----|---------|-----|-----|------|--------|-------------|---------|
+| Tony | 750 | 900 | 520 | 500 | 640 | 85% | DXB |
+| Jeff | 750 | 550 | 770 | 710 | 677 | 90% | SHJ |
+| Sara | 750 | 780 | 850 | 620 | 750 | 100% | DXB |
+| Donny | 750 | 790 | 850 | 550 | 730 | 97% | AUH |
+| Steve | 750 | 850 | 850 | 745 | 815 | 109% | SHJ |
+| Tom | 750 | 590 | 700 | 720 | 670 | 89% | AUH |

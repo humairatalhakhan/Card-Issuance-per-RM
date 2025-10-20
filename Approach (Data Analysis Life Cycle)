@@ -1,43 +1,11 @@
 # 3️⃣ Approach (Data Analysis Life Cycle)
-
-### Data Collection
-- Gathered monthly Excel data from onboarding records for corporates.
-
 ### Data Preparation
-- Cleaned and formatted data using **Excel Tables**.
-- Added formulas for % achievement:
-  ```excel
-  =IFERROR((C5/B5)*100, 0)
+- Cleaned data and ensured consistent numeric formatting.
+- Added formulas to calculate averages and achievement percentages.
 
-Created named ranges for regions (DXB, SHJ, AUH).
-
-Used Pivot Tables to aggregate card issuance per RM and region.
-
-### Data Analysis
-
-Calculated total cards issued and % achieved by RM.
-
-Compared results against the 750-card target per RM.
-
-Identified high and low performers.
-
-### Data Visualization
-
-Created three main charts in Excel:
-1️⃣ Donut Chart – Displays Total Cards Issued vs Target (Overall Achievement % in center).
-2️⃣ Clustered Column + Line Chart – Shows region-wise comparison (Actual vs Target + Achievement %).
-3️⃣ Bar Chart – RM-level breakdown of Card Issuance (Top vs Bottom performers).
-
-### Insights
-
-Highlighted which RMs exceeded 90% achievement.
-
-Identified underperforming regions (<75% achievement).
-
-Helped management focus coaching efforts where needed.
-
-### 4️⃣ Technologies
-
-Excel: Dashboards, KPIs, Charts (Donut, Clustered Column, Bar)
-
-Power BI (Planned): For advanced visual analysis
+Example formulas used in Excel:
+```excel
+##(Calculates Q2 Average)
+=AVERAGE(C2:E2)
+##(Calculates % Achieved)
+=IFERROR((F2/B2)*100, 0)

@@ -1,11 +1,11 @@
 # 💳 Card Issuance per RM Dashboard
 
 ## 📊 Project Overview
-The **Card Issuance per RM Dashboard** project tracks the performance of Relationship Managers (RMs) in issuing new salary and corporate cards for onboarded corporates.
+The **Card Issuance per RM Dashboard** project tracks and visualizes the quarterly performance of Relationship Managers (RMs) in issuing salary and corporate cards for newly onboarded corporates.
 
-This project aims to **analyze, monitor, and visualize key card issuance KPIs** to ensure teams are achieving targets efficiently. The dashboard presents **branch-wise, RM-wise, and regional breakdowns** for better performance tracking and management reporting.
+This dashboard evaluates how effectively each RM met the **target of 750 cards per quarter**, analyzing month-by-month performance and regional averages.
 
-It follows the complete **Data Analytics Life Cycle**:
+The project follows the **data analytics life cycle**:
 **Business Understanding → Data Preparation → Analysis → Visualization → Insights**
 
 ---
@@ -18,4 +18,3 @@ It follows the complete **Data Analytics Life Cycle**:
 5️⃣ Setup  
 6️⃣ Screenshots & Results  
 7️⃣ Status  
-

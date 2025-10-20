@@ -1,20 +1,23 @@
 # 1️⃣ Business Understanding
 
-## Objective
-The Manager requested a dashboard to track **card issuance per RM** and measure performance against set budgets.  
-Each RM has a **target (budget)** of **750 cards per quarter**.
+### Objective
+The objective of this dashboard is to monitor **card issuance performance** of each Relationship Manager (RM) and to ensure that targets are consistently met.
 
-This dashboard provides:
-- **Comparison of actual cards issued vs target**
-- **Regional and RM-level performance analysis**
-- **Visualization of achievement percentage**
-- **Insights for management to identify performance gaps**
+Each RM has a quarterly **budget target of 750 cards**.
+
+### Goals
+- Compare **Actual vs Budget** for each month (April–June)
+- Measure **Average % Achievement** per RM
+- Highlight **Top Performers** and **Underperformers**
+- Analyze **Regional Trends** (DXB, SHJ, AUH)
 
 ---
 
-## KPIs to be tracked:
-- Card Issuance per RM (Target = 750 cards)
-- Total Cards Issued by Region (DXB, SHJ, AUH)
-- Percentage of Target Achieved
-- Average Cards per Corporate
-- Top 3 and Bottom 3 RMs by Achievement %
+### KPIs Tracked
+| KPI | Description |
+|------|--------------|
+| **Q2 Avg** | Average number of cards issued across April, May, and June |
+| **Avg % Achieved** | (Q2 Avg ÷ Target) × 100 |
+| **Regional Performance** | Average % Achieved by Region |
+| **Top RM** | RM with highest % Achieved |
+| **Lowest RM** | RM below 90% of target |
